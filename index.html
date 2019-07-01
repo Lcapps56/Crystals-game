@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <title>crystal game</title>
+    </head>
+    <body>
+        <style>
+            img {
+                height: 150px;
+                width: 150px
+            }
+        </style>
+        <img id="crystal1" src="images/crystal.jpg" />
+        <img id="crystal2" src="images/crystal.jpg" />
+        <img id="crystal3" src="images/crystal.jpg" />
+        <img id="crystal4" src="images/crystal.jpg" />
+        <p>score: <span id="score"></span></p>
+        <p>goal: <span id="goal"></span></p>
+
+        <script>
+            var c1V = 1
+            var c2V = 2
+            var c3V = 5
+            var c4V = 10
+            var score = 0
+            var goal = Math.floor(Math.random()* 45)
+            console.log("goal: " + goal)
+
+            var goalText = $('#goal')
+            $(goalText).text(goal)           
+            
+            $("#crystal1").on("click", function test(){scoreChange(c1V) })
+
+            $("#crystal2").on("click", function test(){scoreChange(c2V)})
+
+            $("#crystal3").on("click", function test(){scoreChange(c3V)})
+
+            $("#crystal4").on("click",function test(){scoreChange(c4V)})
+            
+            function scoreChange(CV){
+                score = score + CV
+                console.log("score: " + score)
+                if (score === goal){
+                    alert("you win")
+                } else if (score > goal){
+                    alert("you lose")
+                }
+                var  scoreText= $('#score')
+                $(scoreText).text(score)
+            }
+        </script>
+    </body>
+</html>
+
+
